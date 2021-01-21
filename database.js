@@ -1,15 +1,14 @@
-
 const productList = [ 
     { 
         productName: "Aprikosen",
-        price: 7.90,
+        price: "7.90fr",
         expireDate: new Date(2021, 11, 12),    
         productImage: "https://image.migros.ch/product-zoom/47c42ac7c3f96779711c07b4e887fa314f7d3118/extra-konfituere-aprikosen.jpg",
         totalCalories: 460,   
     },
     { 
         productName: "Waldbeeren",
-        price: 5.20,
+        price: "5.20fr",
         expireDate: new Date(2021, 3, 19),    
         productImage: "https://image.migros.ch/product-zoom/b1efd55d4b123bdfdb9e5dd644aed4a472a52e21/favorit-konfituere-waldbeeren.jpg",
         totalCalories: 240
@@ -64,20 +63,16 @@ const productList = [
         totalCalories: 250
     }
 ]
+//map ile databasede bulunan urunleri html aktariyoruz
+let databaseinclude=productList.map((product)=>{
 
-
-let databaseInclude=productList.map((product)=>{
-    
-    return` <div class="shop-item">
+    return`  <div class="shop-item">
     <span class="shop-item-title">${product.productName}</span>
     <img class="shop-item-image" src="${product.productImage}">
-    <div class="item-item-details">
+    <div class="shop-item-details">
         <span class="shop-item-price">${product.price}</span>
-        <button class="btn btn-primary shop-item-button" type="button">ADD</button>
-        </div>
-    </div>`
-
+        <button class="btn btn-primary shop-item-button" type="button">BUY</button>
+    </div>
+</div>`
 }).join("")
-document.querySelector("#databaseInclude").innerHTML=databaseInclude; 
-
-
+document.querySelector("#databaseinclude").innerHTML=databaseinclude;
